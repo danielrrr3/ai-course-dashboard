@@ -46,11 +46,11 @@ export default function MetricCard({ title, value, change, trend, period, icon, 
         opacity: 0.75,
       }} />
 
-      {/* icon */}
+      {/* icon — insetInlineEnd so it follows reading direction (right in LTR, left in RTL) */}
       <div style={{
         position: 'absolute',
         top: '22px',
-        right: '22px',
+        insetInlineEnd: '22px',
         width: '36px',
         height: '36px',
         borderRadius: '10px',
@@ -63,7 +63,7 @@ export default function MetricCard({ title, value, change, trend, period, icon, 
         {icon}
       </div>
 
-      {/* title */}
+      {/* title — paddingInlineEnd reserves space for the icon on whichever side it sits */}
       <p style={{
         fontFamily: 'var(--font-sans)',
         fontSize: '11px',
@@ -72,6 +72,7 @@ export default function MetricCard({ title, value, change, trend, period, icon, 
         textTransform: 'uppercase',
         color: 'var(--text-lo)',
         margin: '0 0 12px',
+        paddingInlineEnd: '52px',
       }}>
         {title}
       </p>
@@ -85,6 +86,7 @@ export default function MetricCard({ title, value, change, trend, period, icon, 
         margin: '0 0 14px',
         lineHeight: 1,
         letterSpacing: '-0.02em',
+        paddingInlineEnd: '52px',
       }}>
         {value}
       </p>

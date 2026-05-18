@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import Sidebar from "./components/Sidebar";
+import { LangProvider } from "../lib/lang";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -28,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${plusJakarta.variable}`}>
       <body>
-        <div className="app-shell">
-          <Sidebar />
-          <main className="app-main">{children}</main>
-        </div>
+        <LangProvider>
+          <div className="app-shell">
+            <Sidebar />
+            <main className="app-main">{children}</main>
+          </div>
+        </LangProvider>
       </body>
     </html>
   );
